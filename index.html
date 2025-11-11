@@ -42,10 +42,11 @@
                     <form class="max-w-2xl mx-auto search">
                         <div class="flex items-center gap-2">
                             <input type="search" placeholder="Search books, electronics, furniture..."
-                                class="w-full rounded-full border border-[#ffdf39] px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ffdf39] text-[#ffdf39] md:hidden" />
+                                class="w-full rounded-full border border-[#ffdf39] px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ffdf39] text-[#ffdf39] max-md:hidden" />
                             <button
                                 class="hidden sm:inline-block bg-[#19673d] border border-[#ffdf39] text-[#ffdf39] px-4 py-2 rounded-full">Search</button>
                         </div>
+                        
                     </form>
                 </div>
 
@@ -136,7 +137,7 @@
     <!-- LISTINGS GRID -->
     <section id="browse" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="flex justify-between items-center">
-            <h2 class="text-xl font-semibold">Fresh Listings</h2>
+            <h2 class="text-xl font-semibold text-[#ffdf39]">Fresh Listings</h2>
             <div class="text-sm text-[#ffdf39]">Showing <strong>24</strong> items near you</div>
         </div>
 
@@ -328,6 +329,5 @@
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
-
 
 </html>
