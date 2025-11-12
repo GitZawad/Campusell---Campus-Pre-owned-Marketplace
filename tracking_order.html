@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Campusell — Order Tracking</title>
+  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --muted:#9aa6bf;
+      --accent:#19673d; /* blue */
+      --success:#19673d;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      --max-width:980px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color: #e6eef8;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#071021 0%, #071827 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      padding:28px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      margin-bottom:22px;
+    }
+    .logo{
+      background:linear-gradient(135deg,var(--accent), #a18bff);
+      width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:20px;
+      box-shadow:0 6px 18px rgba(79,142,247,0.15);
+    }
+    header h1{font-size:18px;margin:0}
+    header p{margin:0;color:var(--muted);font-size:13px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 380px;
+      gap:20px;
+    }
+
+    /* Left panel */
+    .panel{background:var(--card);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.02)}
+
+    .order-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+    .order-meta .left{display:flex;gap:12px;align-items:center}
+    .chip{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+    .tracking-id{font-weight:600}
+
+    .eta{color:var(--muted);font-size:13px}
+
+    /* Timeline */
+    .timeline{margin-top:18px;padding:6px 6px 18px}
+    .step{
+      display:flex;gap:12px;align-items:flex-start;padding:14px 8px;border-radius:10px;border:1px solid transparent;
+    }
+    .step + .step{margin-top:6px}
+    .marker{
+      width:14px;height:14px;border-radius:50%;flex:0 0 14px;margin-top:4px;position:relative;
+      box-shadow:0 4px 12px rgba(2,6,23,0.6);
+    }
+    .marker.completed{background:var(--success);box-shadow:0 8px 20px rgba(34,197,94,0.12)}
+    .marker.active{background:var(--accent);animation:pulse 1.6s infinite}
+    .line{
+      position:absolute;height:calc(100% + 6px);width:2px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));left:6px;top:18px;z-index:-1
+    }
+    @keyframes pulse{
+      0%{transform:scale(1);box-shadow:0 0 0 0 rgba(79,142,247,0.15)}
+      70%{transform:scale(1.04);box-shadow:0 0 0 12px rgba(79,142,247,0.02)}
+      100%{transform:scale(1);box-shadow:0 0 0 0 rgba(79,142,247,0)}
+    }
+
+    .step .content{flex:1}
+    .step h3{margin:0;font-size:14px}
+    .step p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+    /* Right panel */
+    .order-card{display:flex;flex-direction:column;gap:12px}
+    .product{display:flex;gap:12px;align-items:center}
+    .thumb{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,#0f1724,#0b1220);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.02)}
+    .prod-info{flex:1}
+    .prod-title{font-weight:600}
+    .price{color:var(--muted);font-size:13px}
+
+    .card-bottom{display:flex;gap:10px;align-items:center;justify-content:space-between}
+    .btn{background:var(--accent);border:none;padding:10px 12px;border-radius:10px;color:white;font-weight:600;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-weight:600}
+
+    /* map placeholder */
+    .map{height:160px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;border:1px solid rgba(255,255,255,0.02)}
+
+    /* small helpers */
+    .muted{color:var(--muted);font-size:13px}
+    .pill{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-size:13px}
+
+    /* responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr;}
+      .container{padding:18px}
+    }
+
+    /* tiny visual touches for accessibility */
+    .step:focus-within{outline:2px solid rgba(79,142,247,0.12);}
+
+  </style>
+</head>
+<body>
+  <div class="container" role="region" aria-label="Order tracking">
+    <header>
+      <div class="logo">CS</div>
+      <div>
+        <h1>Order #CS-2025-0912</h1>
+        <p>Thanks for shopping at Campusell — track your package below.</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Left: timeline -->
+      <section class="panel" aria-labelledby="tracking-heading">
+        <div class="order-meta">
+          <div class="left">
+            <div class="chip">Standard Shipping</div>
+            <div class="tracking-id">Tracking ID: <span style="font-weight:700">TRK12345678</span></div>
+          </div>
+          <div class="eta">
+            Estimated delivery: <strong>Nov 18, 2025</strong>
+            <div class="muted">Delivered within 3–5 business days</div>
+          </div>
+        </div>
+
+        <div id="tracking-heading" style="font-weight:700;margin-bottom:8px">Delivery Progress</div>
+        <div class="timeline" aria-live="polite">
+          <div style="position:relative">
+            <div class="line" aria-hidden="true"></div>
+            <div class="step">
+              <div>
+                <div class="marker completed" aria-hidden="true"></div>
+              </div>
+              <div class="content">
+                <h3>Order placed</h3>
+                <p class="muted">We received your order on Nov 13, 2025 — 09:12 AM</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div>
+                <div class="marker completed" aria-hidden="true"></div>
+              </div>
+              <div class="content">
+                <h3>Being packed</h3>
+                <p class="muted">Your items are being gathered and packed at the seller's side.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div>
+                <div class="marker active" aria-hidden="true"></div>
+              </div>
+              <div class="content">
+                <h3>Shipped</h3>
+                <p class="muted">Left the local dispatch center — in transit.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div>
+                <div class="marker" aria-hidden="true" style="background:rgba(255,255,255,0.06)"></div>
+              </div>
+              <div class="content">
+                <h3>Out for delivery</h3>
+                <p class="muted">With the courier and heading to your campus pickup point.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div>
+                <div class="marker" aria-hidden="true" style="background:rgba(255,255,255,0.03)"></div>
+              </div>
+              <div class="content">
+                <h3>Delivered</h3>
+                <p class="muted">The package will be marked delivered after pickup or sign-off.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+          <button class="btn">View full receipt</button>
+          <button class="btn ghost">Report an issue</button>
+          <div class="pill">Courier: CampusExpress</div>
+        </div>
+      </section>
+
+      <!-- Right: order details -->
+      <aside class="panel order-card" aria-label="Order details">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div class="muted">Sold by</div>
+            <div style="font-weight:700">Campusell Bookstore</div>
+          </div>
+          <div class="chip">Paid</div>
+        </div>
+
+        <div style="border-top:1px dashed rgba(255,255,255,0.02);padding-top:12px">
+          <div class="product">
+            <div class="thumb">📚</div>
+            <div class="prod-info">
+              <div class="prod-title">Introduction to Algorithms (3rd Ed.)</div>
+              <div class="price">Qty 1 • ₨ 1,250</div>
+            </div>
+            <div style="text-align:right">
+              <div class="muted">Status</div>
+              <div style="font-weight:700">In transit</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px" class="product">
+            <div class="thumb">🎧</div>
+            <div class="prod-info">
+              <div class="prod-title">Campus Buds — Wired Headphones</div>
+              <div class="price">Qty 1 • ₨ 350</div>
+            </div>
+            <div style="text-align:right">
+              <div class="muted">Pickup</div>
+              <div class="muted">Campus Collection Point A</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map" role="img" aria-label="Map placeholder">Map / pickup location preview</div>
+
+        <div class="card-bottom">
+          <div>
+            <div class="muted">Total</div>
+            <div style="font-weight:800">₨ 1,600</div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button class="btn ghost">Contact seller</button>
+            <button class="btn">Track on courier</button>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campusell — Community Forum</title>
+  <link href="src/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-[#19673d] text-[#ffdf39] font-sans min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <header class="bg-[#19673d] shadow-sm sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center gap-4">
+          <img src="src/Logo - 6.png" alt="Campusell Logo" class="max-h-16 max-w-46">
+        </div>
+
+        <div class="flex-1 px-6">
+          <form class="max-w-2xl mx-auto search">
+            <div class="flex items-center gap-2">
+              <input type="search" placeholder="Search in community..."
+                class="w-full rounded-full border border-[#ffdf39] px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ffdf39] text-[#ffdf39] bg-transparent placeholder-[#ffdf39]/60 max-md:hidden" />
+              <button
+                class="hidden sm:inline-block bg-[#19673d] border border-[#ffdf39] text-[#ffdf39] px-4 py-2 rounded-full hover:bg-[#145a33]">Search</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="#post"
+            class="hidden sm:inline-block text-sm px-3 py-2 border border-[#ffdf39] text-[#ffdf39] rounded-md hover:bg-[#145a33]">Sell
+            an item</a>
+          <button
+            class="px-3 py-2 bg-[#19673d] border border-[#ffdf39] text-[#ffdf39] rounded-md hover:bg-[#145a33]">Login</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Forum Content -->
+  <main class="flex-grow px-4 py-8 max-w-6xl mx-auto w-full flex flex-col lg:flex-row gap-8">
+
+    <!-- Left: Posts Feed -->
+    <section class="flex-1 space-y-6">
+      <div class="flex justify-between items-center mb-4">
+        <h1 class="text-2xl font-semibold">Campusell Community</h1>
+        <button
+          class="bg-[#ffdf39] text-[#19673d] px-4 py-2 rounded-full font-semibold hover:bg-[#e6ca33] transition">+ New Post</button>
+      </div>
+
+      <!-- Post Card -->
+      <article class="bg-[#155f37] border border-[#ffdf39]/30 rounded-2xl p-6 flex gap-4 shadow-md">
+        <div class="flex flex-col items-center text-center">
+          <button class="text-[#ffdf39] hover:text-white text-xl">▲</button>
+          <span class="font-semibold">56</span>
+          <button class="text-[#ffdf39] hover:text-white text-xl">▼</button>
+        </div>
+        <div class="flex-1">
+          <h2 class="text-lg font-bold">Is the AR measurement feature accurate?</h2>
+          <p class="text-[#ffdf39]/80 text-sm mt-1">
+            Just tried the new AR product measurement tool — pretty cool! Wondering if it’s consistent across devices?
+          </p>
+          <div class="flex items-center gap-4 mt-3 text-sm text-[#ffdf39]/70">
+            <span>Posted by <strong>@techenthusiast</strong></span>
+            <span>3 hours ago</span>
+            <button class="hover:underline">12 Comments</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="bg-[#155f37] border border-[#ffdf39]/30 rounded-2xl p-6 flex gap-4 shadow-md">
+        <div class="flex flex-col items-center text-center">
+          <button class="text-[#ffdf39] hover:text-white text-xl">▲</button>
+          <span class="font-semibold">23</span>
+          <button class="text-[#ffdf39] hover:text-white text-xl">▼</button>
+        </div>
+        <div class="flex-1">
+          <h2 class="text-lg font-bold">Best sellers for second-hand electronics?</h2>
+          <p class="text-[#ffdf39]/80 text-sm mt-1">
+            Any recommendations for verified sellers for used headphones or speakers on Campusell?
+          </p>
+          <div class="flex items-center gap-4 mt-3 text-sm text-[#ffdf39]/70">
+            <span>Posted by <strong>@zaintech</strong></span>
+            <span>1 day ago</span>
+            <button class="hover:underline">8 Comments</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="bg-[#155f37] border border-[#ffdf39]/30 rounded-2xl p-6 flex gap-4 shadow-md">
+        <div class="flex flex-col items-center text-center">
+          <button class="text-[#ffdf39] hover:text-white text-xl">▲</button>
+          <span class="font-semibold">74</span>
+          <button class="text-[#ffdf39] hover:text-white text-xl">▼</button>
+        </div>
+        <div class="flex-1">
+          <h2 class="text-lg font-bold">Feedback on Campusell delivery speed?</h2>
+          <p class="text-[#ffdf39]/80 text-sm mt-1">
+            Ordered two books last week — arrived in 2 days. Super fast! How’s everyone else's experience?
+          </p>
+          <div class="flex items-center gap-4 mt-3 text-sm text-[#ffdf39]/70">
+            <span>Posted by <strong>@studentlife</strong></span>
+            <span>2 days ago</span>
+            <button class="hover:underline">30 Comments</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Right: Sidebar -->
+    <aside class="w-full lg:w-80 space-y-6">
+      <div class="bg-[#155f37] border border-[#ffdf39]/30 rounded-2xl p-6 shadow-md">
+        <h2 class="text-lg font-semibold mb-2">About the Community</h2>
+        <p class="text-sm text-[#ffdf39]/80 mb-3">
+          Welcome to the Campusell Community! Discuss tips, share product reviews, or ask for help from fellow students.
+        </p>
+        <button
+          class="bg-[#ffdf39] text-[#19673d] font-semibold w-full py-2 rounded-full hover:bg-[#e6ca33] transition">Join
+          Community</button>
+      </div>
+
+      <div class="bg-[#155f37] border border-[#ffdf39]/30 rounded-2xl p-6 shadow-md">
+        <h2 class="text-lg font-semibold mb-3">Trending Topics</h2>
+        <ul class="space-y-2 text-sm text-[#ffdf39]/90">
+          <li><a href="#" class="hover:underline">📱 Best gadgets for students</a></li>
+          <li><a href="#" class="hover:underline">🎧 Budget headphones under 500 RMB</a></li>
+          <li><a href="#" class="hover:underline">📚 Book exchange experiences</a></li>
+          <li><a href="#" class="hover:underline">💡 Tips for faster delivery</a></li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-[#ffdf39]/70">
+    © 2025 Campusell — Join the community, share your campus experiences.
+  </footer>
+
+</body>
+
+</html>
