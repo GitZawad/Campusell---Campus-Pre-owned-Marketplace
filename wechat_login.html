@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campusell Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col justify-center items-center bg-[#19673d] text-[#19673d]">
+
+  <!-- Logo -->
+  <div class="flex flex-col items-center mb-10">
+    <img src="lg.png" alt="Campusell Logo" class="w-291 h-126 mb-3">
+    
+    <p class="text-yellow-400 text-sm">Campus Pre-owned Marketplace</p>
+  </div>
+
+ 
+  <!-- Login Button -->
+<button class="bg-transparent hover:bg-yellow-100 border border-yellow-400 text-yellow-400 w-80 py-3 rounded-xl font-medium flex items-center justify-center mb-6 transition duration-200">
+  <img src="we.png" class="w-10 h-9 mr-2"> Login with WeChat
+</button>
+
+
+  <!-- More Options -->
+  <div class="flex justify-center space-x-8 text-yellow-400">
+    <div class="flex flex-col items-center hover:text-yellow-400 cursor-pointer">
+      <img src="phone.png" class="w-6 h-6 mb-1">
+      <span class="text-sm">Mobile</span>
+    </div>
+    <div class="flex flex-col items-center hover:text-yellow-400 cursor-pointer">
+      <img src="user.png" class="w-6 h-6 mb-1">
+      <span class="text-sm">Student ID</span>
+    </div>
+    <div class="flex flex-col items-center hover:text-yellow-400 cursor-pointer">
+      <img src="mail.png" class="w-6 h-6 mb-1">
+      <span class="text-sm">Email</span>
+    </div>
+  </div>
+
+  <!-- Policy Agreement -->
+  <div class="mt-10 text-xs text-yellow-100 flex items-center space-x-2">
+    <input type="checkbox" class="w-4 h-4 text-yellow-400 rounded">
+    <p>I have read and agree to 
+      <a href="#" class="text-yellow-400 hover:underline">Service Agreement</a> and 
+      <a href="#" class="text-yellow-400 hover:underline">Privacy Policy</a>
+    </p>
+  </div>
+
+</body>
+</html>
