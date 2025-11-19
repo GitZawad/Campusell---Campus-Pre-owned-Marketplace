@@ -230,33 +230,47 @@
 <body>
     <!-- NAVBAR -->
     <header class="bg-[#19673d] shadow-sm sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-4">
-                    <img src="src/Logo - 6.png" alt="" class="max-h-16 max-w-46">
-                </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+            <div class="flex items-center gap-4">
+                <img src="src/Logo - 6.png" alt="" class="max-h-16 max-w-46">
+            </div>
 
-                <div class="flex-1 px-6">
-                    <form class="max-w-2xl mx-auto search">
-                        <div class="flex items-center gap-2">
-                            <input type="search" placeholder="Search books, electronics, furniture..."
-                                class="w-full rounded-full border border-[#ffdf39] px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ffdf39] text-[#ffdf39] max-md:hidden" />
-                            <button
-                                class="hidden sm:inline-block bg-[#19673d] border border-[#ffdf39] text-[#ffdf39] px-4 py-2 rounded-full">Search</button>
-                        </div>
-                        
-                    </form>
-                </div>
+            <div class="flex-1 px-6">
+                <form class="max-w-2xl mx-auto search">
+                    <div class="flex items-center gap-2">
+                        <input type="search" placeholder="Search books, electronics, furniture..."
+                            class="w-full rounded-full border border-[#ffdf39] px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ffdf39] text-[#ffdf39] max-md:hidden" />
+                        <button
+                            class="hidden sm:inline-block bg-[#19673d] border border-[#ffdf39] text-[#ffdf39] px-4 py-2 rounded-full">Search</button>
+                    </div>
+                </form>
+            </div>
 
-                <div class="flex items-center gap-3">
-                    <a href="#post"
-                        class="hidden sm:inline-block text-sm px-3 py-2 border border-[#ffdf39] text-[#ffdf39] rounded-md">Sell
-                        an item</a>
-                    <button class="px-3 py-2 bg-[#19673d] border border-[#ffdf39] text-[#ffdf39] rounded-md">Login</button>
+            <div class="flex items-center gap-3">
+                <a href="#post"
+                    class="hidden sm:inline-block text-sm px-3 py-2 border border-[#ffdf39] text-[#ffdf39] rounded-md">Sell
+                    an item</a>
+
+                <!-- User Avatar -->
+                <div class="relative">
+                    <button class="w-10 h-10 rounded-full overflow-hidden border border-[#ffdf39] focus:outline-none focus:ring-2 focus:ring-[#ffdf39]">
+                        <img src="src/user-avatar.png" alt="Roofus" class="w-full h-full object-cover">
+                    </button>
+                    <!-- Optional dropdown menu -->
+                    <!--
+                    <div class="absolute right-0 mt-2 w-48 bg-white text-black rounded-md shadow-lg hidden">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Logout</a>
+                    </div>
+                    -->
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
+
 
     <!-- Profile Section -->
     <div class="profile-container ">
